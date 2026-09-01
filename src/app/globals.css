@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #0b0b0b;
   --foreground: #171717;
+  --brand-yellow: #ffda15;
+  --brand-smoke: #f2f2f2;
+  --brand-gray: #828282;
+  --page-bg: #f4f1ea;
+  --ink: #121212;
+  --muted: #5c5c5c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-mulish);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-mulish), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+p,
+h1,
+h2,
+h3,
+li {
+  overflow-wrap: anywhere;
+}
+
+::selection {
+  background: #ffda15;
+  color: #111;
+}
+
+.page-shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1080px;
+  padding-inline: max(1rem, env(safe-area-inset-left))
+    max(1rem, env(safe-area-inset-right));
+}
+
+@media (min-width: 640px) {
+  .page-shell {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-shell {
+    padding-inline: 2.5rem;
+  }
+}
+
+.section-pad {
+  padding-block: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-pad {
+    padding-block: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-block: 6rem;
+  }
 }
